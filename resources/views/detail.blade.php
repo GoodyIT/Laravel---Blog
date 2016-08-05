@@ -11,7 +11,7 @@
       <div class="divider" style="margin:20px 0px;"></div>
       <p class="flow-text">Related Questions</p>
       <ul class="collapsible popout" data-collapsible="accordion">
-          @foreach ($survey->questions as $question)
+          @forelse ($survey->questions as $question)
         <li style="box-shadow:none;">
           <div class="collapsible-header">{{ $question->title }}</div>
           <div class="collapsible-body">
@@ -22,7 +22,9 @@
             </div>
           </div>
         </li>
-          @endforeach
+          @empty
+            Nothing to show
+          @endforelse
       </ul>
       <div class="divider"></div>
       <h2 class="flow-text">Add Question</h2>
