@@ -9,7 +9,12 @@
         </h2>
     </li>
 @forelse ($surveys as $survey)
-  <a href="survey/{{ $survey->id }}" class="collection-item">{{ $survey->title }}</a>
+  <li class="collection-item">
+    <div><a href="survey/{{ $survey->id }}">{{ $survey->title}}</a>
+        <a href="survey/{{ $survey->id }}" class="secondary-content"><i class="material-icons">send</i></a>
+        <a href="survey/{{ $survey->id }}/edit" class="secondary-content"><i class="material-icons">edit</i></a>
+    </div>
+    </li>
 @empty
     <p class="flow-text center-align">Nothing to show</p>
 @endforelse

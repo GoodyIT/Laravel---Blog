@@ -19,7 +19,8 @@ class QuestionsController extends Controller
 
       $survey->questions()->create([
         'question_type' => $request->question_type,
-        'title'=>$request->title
+        'title'=>$request->title,
+        'option_name'=>$request->option_name
         ]);
       return back();
     }

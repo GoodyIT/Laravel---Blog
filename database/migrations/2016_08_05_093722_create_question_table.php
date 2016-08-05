@@ -17,7 +17,7 @@ class CreateQuestionTable extends Migration
             $table->integer('survey_id')->unsigned()->index();
             $table->string('title');
             $table->string('question_type');
-            $table->string('option_name');
+            $table->string('option_name')->nullable();
             $table->timestamps();
         });
     }

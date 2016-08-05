@@ -17,11 +17,11 @@ class SurveyController extends Controller
   }
 
   public function create(Request $request, Survey $survey) {
-    $survey->create([
+    $surveyItem = $survey->create([
       'title'=>$request->title,
       'description'=>$request->description
       ]);
-    return back();
+    return Redirect::to("/survey/{$surveyItem->id}");
   }
 
   public function new() {
