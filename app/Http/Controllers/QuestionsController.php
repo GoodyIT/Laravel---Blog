@@ -18,7 +18,8 @@ class QuestionsController extends Controller
       // );
 
       $survey->questions()->create([
-        'body' => $request->body
+        'question_type' => $request->question_type,
+        'title'=>$request->title
         ]);
       return back();
     }

@@ -16,6 +16,18 @@ class SurveyController extends Controller
     return view('home', compact('surveys'));
   }
 
+  public function create(Request $request, Survey $survey) {
+    $survey->create([
+      'title'=>$request->title,
+      'description'=>$request->description
+      ]);
+    return back();
+  }
+
+  public function new() {
+    return view('survey.new');
+  }
+
   public function detail(Survey $survey) 
   {
     return view('detail', compact('survey'));

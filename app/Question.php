@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-  protected $fillable = ['body'];
+  protected $fillable = ['title', 'question_type'];
   public function survey() {
     return $this->belongsTo(Survey::class);
   }

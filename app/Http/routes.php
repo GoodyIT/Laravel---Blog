@@ -12,7 +12,10 @@
 */
 
 Route::get('/', 'SurveyController@home');
+Route::get('/survey/new', 'SurveyController@new');
 Route::get('/survey/{survey}', 'SurveyController@detail');
+
+Route::post('/survey/create', 'SurveyController@create');
 
 Route::post('/survey/{survey}/questions', 'QuestionsController@store');
 Route::get('/questions/{question}/edit', 'QuestionsController@edit');

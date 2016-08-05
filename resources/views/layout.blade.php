@@ -3,7 +3,7 @@
     <head>
         <title>Laravel</title>
         {!! MaterializeCSS::include_full() !!}
-
+        <script src="{{ URL::asset('init.js') }}"></script>
     </head>
 
     <body>
