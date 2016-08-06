@@ -38,7 +38,8 @@ class SurveyController extends Controller
       }
 
   # create a brand new survey
-  public function new_survey() {
+  public function new_survey() 
+  {
     return view('survey.new');
   }
 
@@ -55,5 +56,13 @@ class SurveyController extends Controller
   { 
     $survey->option_name = unserialize($survey->option_name);
     return view('survey.view', compact('survey'));
+  }
+
+  public function view_survey_answers(Survey $survey) 
+  {
+    // this returns values nicely
+    // encode above saves examples
+    // $answers = DB::table('answers')->where('survey_id', $survey->survey_id);
+    return view('answers.view', compact(['survey']));
   }
 }

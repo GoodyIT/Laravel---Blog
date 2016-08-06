@@ -10,7 +10,7 @@
       <div class="container">
           <div class="row" style="padding-top:10px;">
               <div class="center-align">
-                <a class="dropdown-button btn blue lighten-1" href="/"> Home </a>
+                <a class="btn-flat blue waves-effect waves-light lighten-1 white-text" href="/"> Home </a>
               </div>
           </div>
           <div class="row">
