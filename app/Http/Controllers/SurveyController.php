@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Survey;
+use App\Answer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -24,6 +25,17 @@ class SurveyController extends Controller
       ]);
     return Redirect::to("/survey/{$surveyItem->id}");
   }
+
+    public function complete_survey(Request $request, Survey $survey) {
+        // return $request->all();
+          // TODO: this stores into db as string array, requiring
+          // unserializing. Store as actual array.
+          // try using json_encode to swallow the $request->all()
+        $newAnswer = $survey->answers()->create([
+          'answer'=>json_encode($request->all()),
+          ]);
+        return Redirect::to("/");
+      }
 
   # create a brand new survey
   public function new_survey() {

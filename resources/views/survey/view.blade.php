@@ -12,7 +12,7 @@
       <div class="divider" style="margin:20px 0px;"></div>
           @forelse ($survey->questions as $question)
             <p class="flow-text">{{ $question->title }}</p>
-              {!! Form::open() !!}
+              {!! Form::open(array('action'=>array('SurveyController@complete_survey', $survey->id))) !!}
                 @if($question->question_type === 'text')
                   {{ Form::text('title')}}
                 @elseif($question->question_type === 'radio')
