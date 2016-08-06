@@ -13,13 +13,7 @@ use App\Http\Requests;
 class QuestionsController extends Controller
 {
     public function store(Request $request, Survey $survey) {
-      // return request()->all();
-      // $survey->questions()->save(
-      //   new Question(['body'=>$request->body])
-      // );
-
       // return $request->all();
-
       $survey->questions()->create([
         'question_type' => $request->question_type,
         'title'=>$request->title,

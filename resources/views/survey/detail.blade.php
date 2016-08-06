@@ -9,7 +9,7 @@
       </p>
 
       <div class="divider" style="margin:20px 0px;"></div>
-      <p class="flow-text">Related Questions</p>
+      <p class="flow-text center-align">Related Questions</p>
       <ul class="collapsible popout" data-collapsible="accordion">
           @forelse ($survey->questions as $question)
           <li style="box-shadow:none;">
@@ -39,13 +39,10 @@
             </div>
           </li>
           @empty
-            <span class='flow-text center-align'>Nothing to show</span>
+            <span class='center-align'>Nothing to show. Add questions below.</span>
           @endforelse
       </ul>
-      <div class="divider"></div>
       <h2 class="flow-text">Add Question</h2>
-      <div class="divider"></div>
-
       <form method="POST" action="{{ $survey->id }}/questions" id="boolean">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="row">

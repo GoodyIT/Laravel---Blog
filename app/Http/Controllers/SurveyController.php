@@ -25,14 +25,23 @@ class SurveyController extends Controller
     return Redirect::to("/survey/{$surveyItem->id}");
   }
 
-  public function new() {
+  # create a brand new survey
+  public function new_survey() {
     return view('survey.new');
   }
 
-  public function detail(Survey $survey) 
+  # retrieve detail page and add questions here
+  public function detail_survey(Survey $survey) 
   {
     #TODO: store form submissions are array not array string
     $survey->option_name = unserialize($survey->option_name);
-    return view('detail', compact('survey'));
-   }
+    return view('survey.detail', compact('survey'));
+  }
+
+  # view survey publicly and complete survey
+  public function view_survey(Survey $survey) 
+  { 
+    $survey->option_name = unserialize($survey->option_name);
+    return view('survey.view', compact('survey'));
+  }
 }
