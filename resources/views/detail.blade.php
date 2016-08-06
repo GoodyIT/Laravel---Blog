@@ -12,18 +12,34 @@
       <p class="flow-text">Related Questions</p>
       <ul class="collapsible popout" data-collapsible="accordion">
           @forelse ($survey->questions as $question)
-        <li style="box-shadow:none;">
-          <div class="collapsible-header">{{ $question->title }}</div>
-          <div class="collapsible-body">
-            <div style="margin:5px; padding:10px;">
-              Content will be here to update
-              <br/>
-              <a href="">Update</a>
+          <li style="box-shadow:none;">
+            <div class="collapsible-header">{{ $question->title }}</div>
+            <div class="collapsible-body">
+              <div style="margin:5px; padding:10px;">
+                  {!! Form::open() !!}
+                    @if($question->question_type === 'text')
+                      {{ Form::text('title')}}
+                    @elseif($question->question_type === 'radio')
+                      @foreach($question->option_name as $key=>$value)
+                        <p style="margin:0px; padding:0px;">
+                          <input name="{{ $value }}"" type="radio" id="{{ $key }}" />
+                          <label for="{{ $key }}">{{ $value }}</label>
+                        </p>
+                      @endforeach
+                    @elseif($question->question_type === 'checkbox')
+                      @foreach($question->option_name as $key=>$value)
+                      <p style="margin:0px; padding:0px;">
+                        <input type="checkbox" id="something{{ $key }}" name="{{ $value }}" />
+                        <label for="something{{$key}}">{{ $value }}</label>
+                      </p>
+                      @endforeach
+                    @endif 
+                  {!! Form::close() !!}
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
           @empty
-            Nothing to show
+            <span class='flow-text center-align'>Nothing to show</span>
           @endforelse
       </ul>
       <div class="divider"></div>
@@ -37,6 +53,7 @@
             <select class="browser-default" name="question_type" id="question_type">
               <option value="" disabled selected>Choose your option</option>
               <option value="text">Text</option>
+              <option value="textarea">Textarea</option>
               <option value="checkbox">Checkbox</option>
               <option value="radio">Radio Buttons</option>
             </select>

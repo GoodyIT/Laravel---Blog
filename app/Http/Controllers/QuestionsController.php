@@ -24,6 +24,8 @@ class QuestionsController extends Controller
         'question_type' => $request->question_type,
         'title'=>$request->title,
         // 'option_name'=> $request->option_name,
+        // TODO: this stores into db as string array, requiring
+        // unserializing. Store as actual array.
         'option_name'=>Input::get('option_name'),
         ]);
       return back();

@@ -31,6 +31,8 @@ class SurveyController extends Controller
 
   public function detail(Survey $survey) 
   {
+    #TODO: store form submissions are array not array string
+    $survey->option_name = unserialize($survey->option_name);
     return view('detail', compact('survey'));
    }
 }
