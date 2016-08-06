@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Survey;
 use App\Question;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,10 +18,13 @@ class QuestionsController extends Controller
       //   new Question(['body'=>$request->body])
       // );
 
+      // return $request->all();
+
       $survey->questions()->create([
         'question_type' => $request->question_type,
         'title'=>$request->title,
-        'option_name'=>$request->option_name
+        // 'option_name'=> $request->option_name,
+        'option_name'=>Input::get('option_name'),
         ]);
       return back();
     }

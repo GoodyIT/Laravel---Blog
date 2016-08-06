@@ -40,15 +40,14 @@
               <option value="checkbox">Checkbox</option>
               <option value="radio">Radio Buttons</option>
             </select>
-          </div>        
+          </div>                
           <div class="input-field col s12">
             <input name="title" id="title" type="text">
             <label for="title">Question</label>
-          </div>          
-          <div class="input-field col s12">
-            <input name="option_name" id="option_name" type="text">
-            <label for="option_name">Options</label>
-          </div>
+          </div>  
+          <!-- this part will be chewed by script in init.js -->
+          <span class="form-g"></span>
+
           <div class="input-field col s12">
           <button class="btn waves-effect waves-light">Submit</button>
           </div>

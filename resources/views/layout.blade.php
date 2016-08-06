@@ -2,9 +2,8 @@
 <html>
     <head>
         <title>Laravel</title>
-        {!! MaterializeCSS::include_full() !!}
+        {!! MaterializeCSS::include_css() !!}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="{{ URL::asset('init.js') }}"></script>
     </head>
 
     <body>
@@ -21,6 +20,9 @@
               </div>
           </div>
       </div>
-
     </body>
+    <script src="{{ URL::asset('jquery.min.js') }}"></script>
+    {!! MaterializeCSS::include_js() !!}
+    <script src="{{ URL::asset('init.js') }}"></script>
+
 </html>

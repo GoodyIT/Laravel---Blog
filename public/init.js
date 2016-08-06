@@ -2,29 +2,31 @@ $(document).ready(function() {
   $('.collapsible').collapsible({
     accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
   });
-  
+
   $(document).on('click', '.delete-option', function() {
-    $(this).parent(".input-g").remove();
+    $(this).parent(".input-field").remove();
   });
 
   $(document).on('click', '.add-option', function() {
-    var txt = '<div class="input-group input-g">' +
+    var material = '<div class="input-field input-g col s12">' +
+      '<input name="option_name[]" id="option_name[]" type="text">' +
       '<span style="float:right;"class="delete-option">Delete</span>' +
-      '<input type="text" name="option_name[]" placeholder="Enter option">' +
-      '<span class="input-group-addon button-click add-option">Add another option</span>' +
+      '<label for="option_name">Options</label>' +
+      '<span class="add-option">Add Another</span>' +
       '</div>';
-    $(".form-g").append(txt);
+    $(".form-g").append(material);
   });
 
   $(document).on('change', '#question_type', function() {
-    var selected_option = $('#question_type :selected').text();
-    if (selected_option == "Radio Button" || selected_option == "Checkbox") {
-      var txt = '<div class="input-group input-g">' +
-        '<span class="delete-option">Delete</span>' +
-        '<input type="text" name="option_name[]" placeholder="Enter option">' +
-        '<span class="add-option">Add another option</span>' +
-        '</div>';
-      $(".form-g").html(txt);
+    var selected_option = $('#question_type :selected').val();
+    if (selected_option === "radio" || selected_option === "checkbox") {
+      var material = '<div class="input-field col input-g s12">' +
+      '<input name="option_name[]" id="option_name[]" type="text">' +
+      '<span style="float:right;"class="delete-option">Delete</span>' +
+      '<label for="option_name">Options</label>' +
+      '<span class="add-option">Add Another</span>' +
+      '</div>';
+      $(".form-g").html(material);
     } else {
       $(".input-g").remove();
     }
