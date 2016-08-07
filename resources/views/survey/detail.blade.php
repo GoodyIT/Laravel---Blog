@@ -19,6 +19,11 @@
                   {!! Form::open() !!}
                     @if($question->question_type === 'text')
                       {{ Form::text('title')}}
+                    @elseif($question->question_type === 'textarea')
+                    <div class="input-field col s12">
+                      <textarea id="textarea1" class="materialize-textarea" name="user_answer"></textarea>
+                      <label for="textarea1">Textarea</label>
+                    </div>
                     @elseif($question->question_type === 'radio')
                       @foreach($question->option_name as $key=>$value)
                         <p style="margin:0px; padding:0px;">

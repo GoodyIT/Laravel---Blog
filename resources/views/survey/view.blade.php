@@ -10,13 +10,18 @@
       </p>
 
       <div class="divider" style="margin:20px 0px;"></div>
+          {!! Form::open(array('action'=>array('SurveyController@complete_survey', $survey->id))) !!}
           @forelse ($survey->questions as $question)
             <p class="flow-text">{{ $question->title }}</p>
-              {!! Form::open(array('action'=>array('SurveyController@complete_survey', $survey->id))) !!}
                 @if($question->question_type === 'text')
                   <div class="input-field col s12">
                     <input id="answer" type="text" name="user_answer">
                     <label for="answer">Answer</label>
+                  </div>
+                @elseif($question->question_type === 'textarea')
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea" name="user_answer"></textarea>
+                    <label for="textarea1">Textarea</label>
                   </div>
                 @elseif($question->question_type === 'radio')
                   @foreach($question->option_name as $key=>$value)
@@ -35,11 +40,11 @@
                 @endif 
 
               <div class="divider" style="margin:10px 10px;"></div>
-              {{ Form::submit('Submit Survey', array('class'=>'btn waves-effect waves-light')) }}
-              {!! Form::close() !!}
           @empty
             <span class='flow-text center-align'>Nothing to show</span>
           @endforelse
+        {{ Form::submit('Submit Survey', array('class'=>'btn waves-effect waves-light')) }}
+        {!! Form::close() !!}
     </div>
   </div>
 @stop
