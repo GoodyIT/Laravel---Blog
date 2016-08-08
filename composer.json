@@ -9,13 +9,21 @@
         "laravel/framework": "5.2.*"
     },
     "require-dev": {
+<<<<<<< HEAD
+=======
+        "skydiver/laravel-materialize-css": "dev-master",
+>>>>>>> a0d1bdbc07412008758393143008f529f206d0e5
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
+<<<<<<< HEAD
         "skydiver/laravel-materialize-css": "dev-master",
         "laravelcollective/html": "~5.0"
+=======
+        "laravelcollective/html": "5.2.*"
+>>>>>>> a0d1bdbc07412008758393143008f529f206d0e5
     },
     "autoload": {
         "classmap": [
@@ -43,7 +51,12 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+<<<<<<< HEAD
             "php artisan optimize"
+=======
+            "php artisan optimize",
+            "php artisan vendor:publish --tag=materializecss --force"
+>>>>>>> a0d1bdbc07412008758393143008f529f206d0e5
         ]
     },
     "config": {
