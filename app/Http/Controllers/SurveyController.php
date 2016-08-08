@@ -39,12 +39,6 @@ class SurveyController extends Controller
     return view('survey.detail', compact('survey'));
   }
   
-  # view survey publicly and complete survey
-  public function view_survey(Survey $survey) 
-  { 
-    $survey->option_name = unserialize($survey->option_name);
-    return view('survey.view', compact('survey'));
-  }
 
   public function edit(Survey $survey) 
   {
@@ -63,12 +57,19 @@ class SurveyController extends Controller
   //   return view('answers.view', compact(['survey']));
   // }
   
-  // public function complete_survey(Request $request, Survey $survey) {
-  //   $newAnswer = $survey->answers()->create([
-  //     'answer'=>json_encode($request->all()),
-  //     ]);
-  //   return Redirect::to("/");
-  // }
+  # view survey publicly and complete survey
+  public function view_survey(Survey $survey) 
+  { 
+    $survey->option_name = unserialize($survey->option_name);
+    return view('survey.view', compact('survey'));
+  }
+  
+  public function complete_survey(Request $request, Survey $survey) {
+    $newAnswer = $survey->answers()->create([
+      'answer'=>json_encode($request->all()),
+      ]);
+    return Redirect::to("/");
+  }
 
 
 

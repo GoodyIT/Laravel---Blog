@@ -8,9 +8,17 @@
         {{ $survey->description }}
       </p>
       <br/>
-      <p>
-      <a href='view/{{$survey->id}}'>Take Survey</a>
-      </p>
+      <a href='view/{{$survey->id}}'>Take Survey</a>  <a href="#doDelete" style="float:right;" class="modal-trigger red-text">Delete Survey</a>
+      <!-- Modal Structure -->
+      <div id="doDelete" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
       <div class="divider" style="margin:20px 0px;"></div>
       <p class="flow-text center-align">Questions</p>
       <ul class="collapsible popout" data-collapsible="accordion">
