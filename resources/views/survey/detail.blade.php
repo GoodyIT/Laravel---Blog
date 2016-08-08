@@ -5,15 +5,18 @@
       <div class="card-content">
       <span class="card-title"> {{ $survey->title }}</span>
       <p>
-        About Survey: {{ $survey->description }}
+        {{ $survey->description }}
       </p>
-
+      <br/>
+      <p>
+      <a href='view/{{$survey->id}}'>Take Survey</a>
+      </p>
       <div class="divider" style="margin:20px 0px;"></div>
-      <p class="flow-text center-align">Related Questions</p>
+      <p class="flow-text center-align">Questions</p>
       <ul class="collapsible popout" data-collapsible="accordion">
           @forelse ($survey->questions as $question)
           <li style="box-shadow:none;">
-            <div class="collapsible-header">{{ $question->title }}</div>
+            <div class="collapsible-header">{{ $question->title }} <a href="" style="float:right;">- Edit</a></div>
             <div class="collapsible-body">
               <div style="margin:5px; padding:10px;">
                   {!! Form::open() !!}

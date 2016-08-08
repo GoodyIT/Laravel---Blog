@@ -5,14 +5,16 @@
       <div class="card-content">
       <span class="card-title"> Start taking Survey</span>
       <p>
-        Survey theme: {{ $survey->title }} <br/>
-        About Survey: {{ $survey->description }}
+        <span class="flow-text">{{ $survey->title }}</span> <br/>
       </p>
-
+      <p>  
+        {{ $survey->description }}
+        <br/>Created by: <a href="">{{ $survey->user->name }}</a>
+      </p>
       <div class="divider" style="margin:20px 0px;"></div>
           {!! Form::open(array('action'=>array('SurveyController@complete_survey', $survey->id))) !!}
-          @forelse ($survey->questions as $question)
-            <p class="flow-text">{{ $question->title }}</p>
+          @forelse ($survey->questions as $key=>$question)
+            <p class="flow-text">Question {{ $key+1 }} - {{ $question->title }}</p>
                 @if($question->question_type === 'text')
                   <div class="input-field col s12">
                     <input id="answer" type="text" name="user_answer">

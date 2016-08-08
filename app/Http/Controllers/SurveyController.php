@@ -35,7 +35,7 @@ class SurveyController extends Controller
   # retrieve detail page and add questions here
   public function detail_survey(Survey $survey) 
   {
-    $survey->load('questions');
+    $survey->load('questions.user');
     return view('survey.detail', compact('survey'));
   }
   
