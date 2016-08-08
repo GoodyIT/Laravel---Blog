@@ -8,7 +8,17 @@
             </span>
         </h2>
     </li>
-
-</ul>
+    @forelse ($surveys as $survey)
+      <li class="collection-item">
+        <div><a href="survey/{{ $survey->id }}">{{ $survey->title}}</a>
+            <a href="survey/view/{{ $survey->id }}" title="Take Survey" class="secondary-content"><i class="material-icons">send</i></a>
+            <a href="survey/{{ $survey->id }}" title="Edit Survey" class="secondary-content"><i class="material-icons">edit</i></a>
+            <a href="survey/answers/{{ $survey->id }}" title="View Survey Answers" class="secondary-content"><i class="material-icons">textsms</i></a>
+        </div>
+        </li>
+    @empty
+        <p class="flow-text center-align">Nothing to show</p>
+    @endforelse
+    </ul>
 
 @stop
