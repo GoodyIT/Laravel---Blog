@@ -12,7 +12,8 @@ use App\Http\Requests;
 
 class QuestionController extends Controller
 {
-    public function store(Request $request, Survey $survey) {
+    public function store(Request $request, Survey $survey) 
+    {
       $arr = $request->all();
       $arr['user_id'] = Auth::id();
 
@@ -20,13 +21,16 @@ class QuestionController extends Controller
       return back();
     }
 
-    public function edit(Question $question) {
-      return view('questions.update', compact('question'));
+    public function edit(Question $question) 
+    {
+      return view('question.edit', compact('question'));
     }
 
-    public function update(Request $request, Question $question) {
+    public function update(Request $request, Question $question) 
+    {
+
       $question->update($request->all());
-      return back();
+      return redirect()->action('SurveyController@detail_survey', [$question->survey_id]);
     }
 
 }

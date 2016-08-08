@@ -46,6 +46,18 @@ class SurveyController extends Controller
     return view('survey.view', compact('survey'));
   }
 
+  public function edit(Survey $survey) 
+  {
+    return view('survey.edit', compact('survey'));
+  }
+
+  # edit survey
+  public function update(Request $request, Survey $survey) 
+  {
+    $survey->update($request->only(['title', 'description']));
+    return redirect()->action('SurveyController@detail_survey', [$survey->id]);
+  }
+
   // public function view_survey_answers(Survey $survey) 
   // {
   //   return view('answers.view', compact(['survey']));
