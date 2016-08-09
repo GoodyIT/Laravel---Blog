@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Survey App built with Laravel :: Khophi's Dev</title>
         {!! MaterializeCSS::include_css() !!}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>

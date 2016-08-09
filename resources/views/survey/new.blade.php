@@ -12,7 +12,7 @@
             <label for="title">Survey Title</label>
           </div>          
           <div class="input-field col s12">
-            <input name="description" id="description" type="text">
+            <textarea name="description" id="description" class="materialize-textarea"></textarea>
             <label for="description">Description</label>
           </div>
           <div class="input-field col s12">

@@ -12,7 +12,7 @@
         <br/>Created by: <a href="">{{ $survey->user->name }}</a>
       </p>
       <div class="divider" style="margin:20px 0px;"></div>
-          {!! Form::open(array('action'=>array('SurveyController@complete_survey', $survey->id))) !!}
+          {!! Form::open(array('action'=>array('AnswerController@store', $survey->id))) !!}
           @forelse ($survey->questions as $key=>$question)
             <p class="flow-text">Question {{ $key+1 }} - {{ $question->title }}</p>
                 @if($question->question_type === 'text')
