@@ -7,7 +7,7 @@
   <h2 class="flow-text">Edit Question Title</h2>
    <div class="row">
     <div class="input-field col s12">
-      <textarea id="title" name="title" class="materialize-textarea">{{ $question->title }}</textarea>
+      <input type="text" name="title" id="title" value="{{ $question->title }}">
       <label for="title">Question</label>
     </div>
     <div class="input-field col s12">

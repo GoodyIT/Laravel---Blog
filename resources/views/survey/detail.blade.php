@@ -21,10 +21,10 @@
       </div>
       <div class="divider" style="margin:20px 0px;"></div>
       <p class="flow-text center-align">Questions</p>
-      <ul class="collapsible popout" data-collapsible="accordion">
+      <ul class="collapsible" data-collapsible="expandable">
           @forelse ($survey->questions as $question)
           <li style="box-shadow:none;">
-            <div class="collapsible-header">{{ $question->title }} <a href="/question/{{ $question->id }}/edit" style="float:right;">Edit</a></div>
+            <div class="collapsible-header active">{{ $question->title }} <a href="/question/{{ $question->id }}/edit" style="float:right;">Edit</a></div>
             <div class="collapsible-body">
               <div style="margin:5px; padding:10px;">
                   {!! Form::open() !!}

@@ -52,26 +52,20 @@ class SurveyController extends Controller
     return redirect()->action('SurveyController@detail_survey', [$survey->id]);
   }
 
-  // public function view_survey_answers(Survey $survey) 
-  // {
-  //   return view('answers.view', compact(['survey']));
-  // }
-  
   # view survey publicly and complete survey
   public function view_survey(Survey $survey) 
   { 
     $survey->option_name = unserialize($survey->option_name);
     return view('survey.view', compact('survey'));
   }
-  
-  public function complete_survey(Request $request, Survey $survey) {
-    $newAnswer = $survey->answers()->create([
-      'answer'=>json_encode($request->all()),
-      ]);
-    return Redirect::to("/");
+
+  # view submitted answers from current logged in user
+  public function view_survey_answers(Survey $survey) 
+  {
+    $survey->load('user.questions.answers');
+    // return view('survey.detail', compact('survey'));
+    return $survey;
+    return view('answer.view', compact('survey'));
   }
-
-
-
 
 }
