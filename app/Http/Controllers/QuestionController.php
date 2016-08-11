@@ -12,6 +12,11 @@ use App\Http\Requests;
 
 class QuestionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+  
     public function store(Request $request, Survey $survey) 
     {
       $arr = $request->all();

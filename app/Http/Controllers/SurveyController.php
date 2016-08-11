@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class SurveyController extends Controller
 {
-  public function home() 
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
+
+  public function home(Request $request) 
   {
     $surveys = Survey::get();
     return view('home', compact('surveys'));
