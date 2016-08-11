@@ -17,6 +17,7 @@ class CreateSurveyTable extends Migration
             $table->string('title');
             $table->integer('user_id')->unsigned()->index();
             $table->string('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Survey extends Model
 {
   protected $fillable = ['title', 'description', 'user_id'];
-  // can have many answers or question
+  protected $dates = ['deleted_at'];
+  protected $table = 'survey';
+
   public function questions() {
     return $this->hasMany(Question::class);
   }
@@ -20,5 +22,4 @@ class Survey extends Model
     return $this->hasMany(Answer::class);
   }
 
-  protected $table = 'survey';
 }

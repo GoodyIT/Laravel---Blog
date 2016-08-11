@@ -8,8 +8,9 @@
         {{ $survey->description }}
       </p>
       <br/>
-      <a href='view/{{$survey->id}}'>Take Survey</a>  <a href="#doDelete" style="float:right;" class="modal-trigger red-text">Delete Survey</a>
+      <a href='view/{{$survey->id}}'>Take Survey</a> | <a href="{{$survey->id}}/edit">Edit Survey</a> | <a href="/survey/answers/{{$survey->id}}">View Answers</a> <a href="#doDelete" style="float:right;" class="modal-trigger red-text">Delete Survey</a>
       <!-- Modal Structure -->
+      <!-- TODO Fix the Delete aspect -->
       <div id="doDelete" class="modal">
         <div class="modal-content">
           <h4>Modal Header</h4>
@@ -55,7 +56,7 @@
             </div>
           </li>
           @empty
-            <span class='center-align'>Nothing to show. Add questions below.</span>
+            <span style="padding:10px;">Nothing to show. Add questions below.</span>
           @endforelse
       </ul>
       <h2 class="flow-text">Add Question</h2>

@@ -69,8 +69,14 @@ class SurveyController extends Controller
   {
     $survey->load('user.questions.answers');
     // return view('survey.detail', compact('survey'));
-    return $survey;
+    // return $survey;
     return view('answer.view', compact('survey'));
+  }
+
+  public function delete_survey(Survey $survey)
+  {
+    $survey->delete();
+    return redirect('');
   }
 
 }
