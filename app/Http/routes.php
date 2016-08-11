@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', 'SurveyController@home'); // List all surveys
+Route::get('/', 'SurveyController@home');
 
 Route::get('/survey/new', 'SurveyController@new_survey')->name('new.survey');
 Route::get('/survey/{survey}', 'SurveyController@detail_survey')->name('detail.survey');

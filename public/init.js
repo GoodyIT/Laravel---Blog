@@ -3,6 +3,8 @@ $(document).ready(function() {
     accordion: false
   });
 
+  $('.modal-trigger').leanModal();
+
   $(document).on('click', '.delete-option', function() {
     $(this).parent(".input-field").remove();
   });

@@ -11,13 +11,18 @@
       <a href='view/{{$survey->id}}'>Take Survey</a> | <a href="{{$survey->id}}/edit">Edit Survey</a> | <a href="/survey/answers/{{$survey->id}}">View Answers</a> <a href="#doDelete" style="float:right;" class="modal-trigger red-text">Delete Survey</a>
       <!-- Modal Structure -->
       <!-- TODO Fix the Delete aspect -->
-      <div id="doDelete" class="modal">
+      <div id="doDelete" class="modal bottom-sheet">
         <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+          <div class="container">
+            <div class="row">
+              <h4>Are you sure?</h4>
+              <p>Do you wish to delete this survey called "{{ $survey->title }}"?</p>
+              <div class="modal-footer">
+                <a href="/survey/{{ $survey->id }}/delete" class=" modal-action waves-effect waves-light btn-flat red-text">Yep yep!</a>
+                <a class=" modal-action modal-close waves-effect waves-light green white-text btn">No, stop!</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="divider" style="margin:20px 0px;"></div>

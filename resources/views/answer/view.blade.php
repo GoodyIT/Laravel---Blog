@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    @foreach ($survey->questions as $item)
+    @forelse ($survey->questions as $item)
     <tr>
       <td>{{ $item->title }}</td>
       @foreach ($item->answers as $answer)
@@ -19,7 +19,14 @@
         <small>{{ $answer->created_at }}</small></td>
       @endforeach
     </tr>
-    @endforeach
+    @empty
+      <tr>
+        <td>
+          No answers provided by you for this Survey
+        </td>
+        <td></td>
+      </tr>
+    @endforelse
   </tbody>
 </table>
 @endsection
