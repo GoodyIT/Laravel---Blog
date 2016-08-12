@@ -73,6 +73,8 @@ class SurveyController extends Controller
     return view('answer.view', compact('survey'));
   }
 
+  // TODO: Make sure user deleting survey
+  // has authority to
   public function delete_survey(Survey $survey)
   {
     $survey->delete();

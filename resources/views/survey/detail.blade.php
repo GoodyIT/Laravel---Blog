@@ -37,22 +37,24 @@
                     @if($question->question_type === 'text')
                       {{ Form::text('title')}}
                     @elseif($question->question_type === 'textarea')
-                    <div class="input-field col s12">
-                      <textarea id="textarea1" class="materialize-textarea" name="user_answer"></textarea>
-                      <label for="textarea1">Textarea</label>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Provide answer</label>
+                      </div>
                     </div>
                     @elseif($question->question_type === 'radio')
                       @foreach($question->option_name as $key=>$value)
                         <p style="margin:0px; padding:0px;">
-                          <input name="{{ $value }}"" type="radio" id="{{ $key }}" />
+                          <input type="radio" id="{{ $key }}" />
                           <label for="{{ $key }}">{{ $value }}</label>
                         </p>
                       @endforeach
                     @elseif($question->question_type === 'checkbox')
                       @foreach($question->option_name as $key=>$value)
                       <p style="margin:0px; padding:0px;">
-                        <input type="checkbox" id="something{{ $key }}" name="{{ $value }}" />
-                        <label for="something{{$key}}">{{ $value }}</label>
+                        <input type="checkbox" id="{{ $key }}" />
+                        <label for="{{$key}}">{{ $value }}</label>
                       </p>
                       @endforeach
                     @endif 
